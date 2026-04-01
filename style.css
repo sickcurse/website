@@ -1,15 +1,14 @@
 .image-scroll {
     display: flex;
     gap: 16px;
-    overflow-x: auto;   /* enables horizontal scrolling */
+    overflow-x: auto;
     padding: 10px 0;
   }
   
   .image-scroll img {
-    width: 180px;       /* 🔑 makes images smaller */
-    height: 220px;      /* consistent size */
-    object-fit: cover;  /* prevents stretching */
-    border-radius: 10px;
-    flex-shrink: 0;     /* keeps images from shrinking */
+    width: 160px;           /* 🔑 controls overall size */
+    aspect-ratio: 8.5 / 11; /* letter proportion */
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
   }
-  
