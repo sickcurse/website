@@ -22,12 +22,16 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll('.image-scroll img').forEach(img => {
         img.addEventListener('click', () => {
             quickviewImg.src = img.src;             // show clicked image
-            quickview.classList.remove('hidden');   // reveal lightbox
+            quickview.classList.remove('hidden');   // make visible
+            quickview.classList.add('show');        // trigger fade-in
         });
     });
 
     quickview.addEventListener('click', () => {
-        quickview.classList.add('hidden');         // hide overlay
-        quickviewImg.src = '';                      // clear src
+        quickview.classList.remove('show');       // trigger fade-out
+        setTimeout(() => {
+            quickview.classList.add('hidden');    // hide after fade
+            quickviewImg.src = '';                 // clear image
+        }, 300); // match CSS transition duration
     });
 });

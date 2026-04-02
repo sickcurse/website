@@ -19,7 +19,6 @@
   gap: 16px;
   overflow-x: auto;
   padding: 10px 0;
-
   scroll-behavior: smooth; /* smooth scrolling */
 }
 
@@ -32,6 +31,7 @@
   scrollbar-width: none;     /* Firefox */
 }
 
+/* Quickview overlay */
 #quickview {
   position: fixed;
   top: 0;
@@ -44,6 +44,16 @@
   justify-content: center;
   cursor: pointer;
   z-index: 999;
+
+  /* fade-in/out effect */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* disable clicks while hidden */
+}
+
+#quickview.show {
+  opacity: 1;
+  pointer-events: auto; /* re-enable clicks when visible */
 }
 
 #quickview img {
@@ -54,5 +64,5 @@
 }
 
 .hidden {
-  display: none;
+  display: none;  /* keep hidden by default */
 }
