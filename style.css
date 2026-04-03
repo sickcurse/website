@@ -1,68 +1,62 @@
-/* verticals stay the same */
-.image-scroll img {
-  width: 160px;             /* vertical letter size */
-  aspect-ratio: 8.5 / 11;   /* portrait ratio */
-  object-fit: cover;
-  border-radius: 8px;
-  flex-shrink: 0;
+header {
+  text-align: center;
 }
 
-/* horizontals scale naturally, same height as verticals */
-.image-scroll img.horizontal {
-  aspect-ratio: auto;       /* no forced portrait */
-  height: 160px;            /* same visual height as verticals */
-  width: auto;              /* scale width proportionally */
+header :hover {
+  text-align: center;
+  opacity: 0.6;
 }
 
-.image-scroll {
+header a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+footer  {
+  text-decoration: none;
+  color: inherit;
+  text-align: center
+}
+footer a {
+  text-decoration: none;
+  color: inherit;
+  text-align: center
+}
+
+footer a:hover {
+  opacity: 0.6;
+}
+
+main {
+  height: calc(100vh - 160px); /* fill space between header and footer */
+}
+
+.grid-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.cell {
   display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  padding: 10px 0;
-  scroll-behavior: smooth; /* smooth scrolling */
 }
 
-/* hide scrollbar but keep touch scrolling */
-.image-scroll::-webkit-scrollbar {
-  display: none;
-}
-.image-scroll {
-  -ms-overflow-style: none;  /* IE & Edge */
-  scrollbar-width: none;     /* Firefox */
+.cell a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.2rem;
+  letter-spacing: 0.05em;
 }
 
-/* Quickview overlay */
-#quickview {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 999;
-
-  /* fade-in/out effect */
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none; /* disable clicks while hidden */
+.cell a:hover {
+  opacity: 0.6;
 }
 
-#quickview.show {
-  opacity: 1;
-  pointer-events: auto; /* re-enable clicks when visible */
-}
-
-#quickview img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-}
-
-.hidden {
-  display: none;  /* keep hidden by default */
-}
+.top-left  { align-items: flex-start; justify-content: flex-start; }
+.top-right { align-items: flex-start; justify-content: flex-end; }
+.bottom-left  { align-items: flex-end; justify-content: flex-start; }
+.bottom-right { align-items: flex-end; justify-content: flex-end; }
